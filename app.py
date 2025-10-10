@@ -38,9 +38,9 @@ with st.expander("Quick Test (Same values for all 7 days)"):
         st.subheader(f"📊 Predicted Soil Moisture: **{prediction:.2f}%**")
         
         # Simple rules
-        if prediction < 1:
+        if prediction < 13:
             st.warning("💧 Soil is dry → Irrigation Required")
-        elif prediction > 20:
+        elif prediction > 27:
             st.info("🌧️ Soil too wet → Hold Irrigation")
         else:
             st.success("✅ Soil moisture optimal → No irrigation needed")
