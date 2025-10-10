@@ -6,7 +6,13 @@ import joblib
 # ---------------------------
 # Load trained model + scaler
 # ---------------------------
-model = tf.keras.models.load_model("irrigation_lstm.h5")
+model = tf.keras.models.load_model("irrigation_lstm.h5", compile=False)
+# Recompile with fresh config
+model.compile(
+    optimizer='adam',
+    loss='mse',
+    metrics=['mae']
+)
 scaler = joblib.load("scaler.pkl")
 
 st.title("🌱 Smart Irrigation - Soil Moisture Prediction")
